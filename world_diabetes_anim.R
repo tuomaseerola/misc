@@ -2,7 +2,6 @@
 library(ggplot2)
 library(ggforce)
 
-##
 d<-data.frame(start=seq(0,0,by=0),end=seq(0.1,8,by=0.1),r=1)
 d$textcol<-'lightskyblue'
 d$textcol[1:55]<-'grey95'
@@ -10,7 +9,7 @@ d$textcol[1:55]<-'grey95'
 inc<-seq(0.1,8,by=0.1)
 for (i in 1:length(inc)){
   fileName = paste("frame", ifelse(i < 10, "0", ""), i, ".png", sep="")
-  png(filename=fileName)
+  png(filename=fileName,width = 360, height = 360, units = "px")
   g <- ggplot()+
     geom_arc(aes(x0=0, y0=0, r=r, start=0, end=inc[i]),
              data=d,size=14,colour="lightskyblue")+
@@ -22,7 +21,5 @@ for (i in 1:length(inc)){
     print(g)
     dev.off()
 }
-##
 # convert to animation
-#convert *.png worlddiabeteaday.gif
-
+convert *.png worlddiabetesday.gif
